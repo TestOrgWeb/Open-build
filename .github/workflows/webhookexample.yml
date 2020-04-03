@@ -1,0 +1,13 @@
+name: Webhook Example
+on: repository_dispatch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Printing hello
+      #if: github.event.action == 'issue_comment'
+      run: |
+        echo "Hello worked!!"
+        ls -ltr

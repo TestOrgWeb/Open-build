@@ -9,4 +9,4 @@ jobs:
     - name: Printing hello
       if: github.event.action == 'issue_comment'
       run: |
-        echo "Workflow triggered on issue_comment"
+        echo "Workflow triggered on PR comment"

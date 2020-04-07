@@ -16,9 +16,5 @@ jobs:
         echo ${{github.event}}
         echo 4
         echo ${{github.event.issue.url}}
-        echo 5
-        echo ${{data.client_payload}}
-        echo 6
-        echo ${{data.event_type}}
         echo 7
         echo ${{event.github.payload}}

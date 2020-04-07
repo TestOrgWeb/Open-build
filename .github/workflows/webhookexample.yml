@@ -10,9 +10,6 @@ jobs:
       #if: github.event.action == 'issue_comment'
       run: |
         echo "Workflow triggered on PR comment"
-        echo 2
-        echo ${{github.event.action}}
-        echo 3
-        echo ${{github.event.client_payload.name}}
-        echo 4
-        echo ${{github.event}}
+        echo ***********************
+        echo ${{github.event.client_payload.comment.body}}
+        echo ***********************

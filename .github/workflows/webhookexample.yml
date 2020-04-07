@@ -10,4 +10,5 @@ jobs:
       if: github.event.action == 'issue_comment'
       run: |
         echo "Workflow triggered on PR comment"
-        echo ${{github.event.payload}}
+        echo ${{github.event.action}}
+        echo ${{github.event}}

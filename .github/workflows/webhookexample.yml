@@ -13,3 +13,13 @@ jobs:
         echo ***********************
         echo ${{github.event.client_payload.comment.body}}
         echo ***********************
+
+    - name: Hello world action step
+      id: hello
+      uses: gaiksaya/hello-world-docker-action@v1
+      with:
+        who-to-greet: 'Hello world action'
+        
+    # Use the output from the `hello` step
+    - name: Get the output time
+      run: echo "The time was ${{ steps.hello.outputs.time }}"

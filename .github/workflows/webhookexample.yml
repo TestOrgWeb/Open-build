@@ -11,5 +11,5 @@ jobs:
       run: |
         echo "Workflow triggered on PR comment"
         echo ***********************
-        echo ${{github.event.client_payload.comment}}
+        echo ${{github.event.client_payload.comment.body}}
         echo ***********************

@@ -14,7 +14,3 @@ jobs:
         echo ${{github.event.action}}
         echo 3
         echo ${{github.event}}
-        echo 4
-        echo ${{github.event.issue.url}}
-        echo 7
-        echo ${{event.github.payload}}

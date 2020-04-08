@@ -6,11 +6,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - name: Printing hello
+    - name: Checking out repo
       #if: github.event.action == 'issue_comment'
       uses: actions/checkout@v1
       with:
         repository: ${{github.event.client_payload.repository.full_name}}
+
+    - name: Printing stuff
       run: |
         echo "Workflow triggered on PR comment"
         echo ***********************

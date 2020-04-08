@@ -8,12 +8,12 @@ jobs:
     
     - name: Printing hello
       #if: github.event.action == 'issue_comment'
+      with:
+        repository: ${{github.event.client_payload.repository.full_name}}
       run: |
         echo "Workflow triggered on PR comment"
         echo ***********************
         echo ${{github.event.client_payload.comment.body}}
-        echo ***********************
-        echo ${{github.event.client_payload.repository.full_name}}
         echo "Name of the current branch: ${GITHUB_REF##*/}"
         echo "The sha: ${GITHUB_SHA}"
         echo "The repo: ${GITHUB_REPOSITORY}"

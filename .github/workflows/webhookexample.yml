@@ -6,17 +6,19 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - name: Checking out repo
-      #if: github.event.action == 'issue_comment'
-      uses: actions/checkout@v1
-      with:
-        repository: ${{github.event.client_payload.repository.full_name}}
+    # - name: Checking out repo
+    #   #if: github.event.action == 'issue_comment'
+    #   uses: actions/checkout@v1
+    #   with:
+    #     repository: ${{github.event.client_payload.repository.full_name}}
+    #     ref: master 
 
     - name: Printing stuff
       run: |
         echo "Workflow triggered on PR comment"
         echo ***********************
         echo ${{github.event.client_payload.comment.body}}
+        echo "Commit: ${{github.event.client_payload.repository.commits_url}}"
         echo "Name of the current branch: ${GITHUB_REF##*/}"
         echo "The sha: ${GITHUB_SHA}"
         echo "The repo: ${GITHUB_REPOSITORY}"

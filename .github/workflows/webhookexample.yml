@@ -8,6 +8,7 @@ jobs:
     
     - name: Printing hello
       #if: github.event.action == 'issue_comment'
+      uses: actions/checkout@v1
       with:
         repository: ${{github.event.client_payload.repository.full_name}}
       run: |

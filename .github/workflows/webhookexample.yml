@@ -16,6 +16,12 @@ jobs:
     - name: Printing stuff
       run: |
         echo "Comment made is : ---------${{github.event.client_payload.comment.body}}"
+        echo "Person who made the comment--------------${{github.event.client_payload.comment.author_association}}"
         echo "Name of the current branch-------- ${GITHUB_REF##*/}"
         echo "Sha commit name------- ${GITHUB_SHA}"
+
+   - name: Geeting commit number
+     ref: ${{github.event.client_payload.repository.full_name}}
+     run: |
+        echo `/usr/bin/git log -l`
 

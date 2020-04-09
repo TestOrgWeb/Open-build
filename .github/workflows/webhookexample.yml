@@ -13,7 +13,7 @@ jobs:
         repository: ${{github.event.client_payload.repository.full_name}}
         ref: PRtest
       run: |
-      echo $commit
+        echo $commit
 
     - name: Printing stuff
       run: |

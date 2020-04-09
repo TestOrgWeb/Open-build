@@ -20,8 +20,3 @@ jobs:
         echo "Name of the current branch-------- ${GITHUB_REF##*/}"
         echo "Sha commit name------- ${GITHUB_SHA}"
 
-   - name: Geeting commit number
-     #ref: ${{github.event.client_payload.repository.full_name}}
-     run: |
-        echo /usr/bin/git log -l
-

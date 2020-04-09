@@ -23,5 +23,5 @@ jobs:
    - name: Geeting commit number
      #ref: ${{github.event.client_payload.repository.full_name}}
      run: |
-        echo `/usr/bin/git log -l`
+        echo /usr/bin/git log -l
 

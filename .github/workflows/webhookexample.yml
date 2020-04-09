@@ -17,7 +17,11 @@ jobs:
       run: |
         echo "Workflow triggered on PR comment"
         echo ***********************
+        echo "Repo Name: ${{github.event.client_payload.repository.full_name}}"
+        echo ***********************
         echo ${{github.event.client_payload.comment.body}}
-        echo "Commit: ${{github.event.client_payload.repository.commits_url}}"
+        echo ***********************
         echo "Name of the current branch: ${GITHUB_REF##*/}"
+        echo ***********************
+        echo "Sha commit name: ${GITHUB_SHA}"
 

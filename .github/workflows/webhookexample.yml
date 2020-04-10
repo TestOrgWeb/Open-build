@@ -18,5 +18,10 @@ jobs:
         echo "Comment made is : ---------${{github.event.client_payload.comment.body}}"
         echo "Person who made the comment--------------${{github.event.client_payload.comment.author_association}}"
         echo "Name of the current branch-------- ${GITHUB_REF##*/}"
-        echo "Sha commit name------- ${GITHUB_SHA}"
+        echo "Sha commit name------- ${github.sha}"
+
+    - name: Using backport action
+      uses: TestOrgWeb/infra/actions@master
+      with:
+        branchName: ${{github.event.client_payload.repository.full_name}}
 

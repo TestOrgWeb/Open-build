@@ -4,24 +4,27 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    
+    - name: Getting branch name from the comment
+        run: |
+          branch=$(echo ${{github.event.client_payload.comment.body}} | cut -d ' ' -f 3)
+          echo ::set-env name=branchName::$branch
+
     - name: Checking out repo
       if: github.event.action == 'issue_comment'
       uses: actions/checkout@v2
       with:
         repository: ${{github.event.client_payload.repository.full_name}}
-        ref: master
+        ref: ${{ env.branchName }}
 
     - name: Printing stuff
       run: |
         echo "Comment made is : ---------${{github.event.client_payload.comment.body}}"
         echo "Person who made the comment--------------${{github.event.client_payload.comment.author_association}}"
         echo "Name of the current branch-------- ${GITHUB_REF##*/}"
-        echo "The SHA------------ ${{github.event.pull_request.head.sha}}"
 
     - name: Using backport action
       uses: TestOrgWeb/infra/actions@master
       with:
-        branchName: ${{github.event.client_payload.repository.full_name}}
+        repoName: ${{github.event.client_payload.repository.full_name}}
+        access_token: ${{ secrets.GITHUB_TOKEN }}
 
